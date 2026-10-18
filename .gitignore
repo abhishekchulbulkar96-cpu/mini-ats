@@ -1,0 +1,29 @@
+
+# Node.js / React
+node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Java / Spring Boot
+backend/target/
+backend/.gradle/
+*.class
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+
+# IDE files
+.vscode/
+.idea/
+.classpath
+.project
+.settings/
+
+# Operating system
+.DS_Store
+Thumbs.db
