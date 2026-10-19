@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 
-const API = "http://localhost:8080/api/candidates";
+const API_URL = "https://mini-ats-ycs6.onrender.com/api/candidates";
 
 const emptyForm = {
   fullName: "",
@@ -30,12 +30,12 @@ function App() {
   const loadCandidates = async () => {
     try {
       setLoading(true);
-      const response = await fetch(API);
+     const response = await fetch(API_URL);
       if (!response.ok) throw new Error("Could not load candidates.");
       setCandidates(await response.json());
       setError("");
     } catch {
-      setError("Cannot connect to the backend. Check Eclipse and Docker.");
+     setError("Cannot connect to the backend. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -102,8 +102,9 @@ function App() {
     setError("");
     setNotice("");
 
+
     try {
-      const url = editing ? `${API}/${editing.id}` : API;
+     const url = editing ? `${API_URL}/${editing.id}` : API_URL;
       const response = await fetch(url, {
         method: editing ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -141,7 +142,7 @@ function App() {
     setNotice("");
 
     try {
-      const response = await fetch(`${API}/${candidate.id}`, {
+      const response = await fetch(`${API_URL}/${candidate.id}`, {
         method: "DELETE",
       });
 
