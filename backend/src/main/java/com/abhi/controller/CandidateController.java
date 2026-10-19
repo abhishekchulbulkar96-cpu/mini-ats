@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/candidates")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://mini-ats-r7ec.onrender.com")
 public class CandidateController {
 
     private final CandidateService candidateService;
